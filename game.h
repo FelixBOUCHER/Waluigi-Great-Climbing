@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include "Waluigi.h"
+#include "wall.h"
 
 class Game: public QGraphicsView
 {
@@ -14,7 +15,8 @@ public:
 
     QGraphicsScene * scene;
     Waluigi * WAH;
-
+    Wall * Left_Wall;
+    Wall * Right_Wall;
 };
 
 #endif // GAME_H

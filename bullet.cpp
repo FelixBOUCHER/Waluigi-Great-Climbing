@@ -12,7 +12,7 @@ using namespace std;
 
 Bullet::Bullet(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
-    setPixmap(QPixmap("/auto_home/fboucher/WAH_Maker/images/Garlic.png"));
+    setPixmap(QPixmap("/auto_home/fboucher/WAH_Maker/images/Stache.png"));
 
     QTimer *timer = new QTimer;
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
@@ -24,19 +24,14 @@ void Bullet::move()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
 
-    setPos(x()+1,y()+0.4f);
-    stamina--;
+    setPos(x()+0.25,y()+0.4f);
+    stamina;
 
-    /*for (int i = 0, n = colliding_items.size(); i < n; i++)
+    for (int i = 0, n = colliding_items.size(); i < n; i++)
     {
-            cerr << colliding_items[i] << endl;
-            scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
-
-            delete colliding_items[i];
-            delete this;
+            stamina = 100;
             return;
-    }*/
+    }
 
     if(stamina <= 0)
     {

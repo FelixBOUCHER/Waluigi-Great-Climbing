@@ -3,12 +3,14 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h> // rand() -> really large int
+#include <time.h>
 #include "game.h"
 
 extern Game * game;
 
 Platform::Platform(int min, int max, float F, int type, QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    srand (time(NULL));
     int random_number = rand() % max + min;
     setPos(random_number, 0);
 
@@ -24,7 +26,6 @@ Platform::Platform(int min, int max, float F, int type, QGraphicsItem *parent): 
     fallspeed = F;
 
     timer->start(2);
-
 }
 
 void Platform::fall()

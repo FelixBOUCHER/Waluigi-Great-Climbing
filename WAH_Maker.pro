@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     game.cpp \
     enemy.cpp \
     platform.cpp \
-    powerup.cpp
+    powerup.cpp \
+    wall.cpp
 
 HEADERS  += mainwindow.h \
     bullet.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     game.h \
     enemy.h \
     platform.h \
-    powerup.h
+    powerup.h \
+    wall.h
 
 FORMS    += mainwindow.ui
 

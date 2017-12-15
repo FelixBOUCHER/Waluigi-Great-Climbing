@@ -1,6 +1,7 @@
 #include "game.h"
 #include "enemy.h"
 #include "Waluigi.h"
+#include "wall.h"
 #include <QTimer>
 #include <QGraphicsTextItem>
 #include <QFont>
@@ -23,9 +24,14 @@ Game::Game(QWidget *parent){
     WAH -> setFocus();
     scene -> addItem(WAH);
 
+    Left_Wall = new Wall(0,-800);
+    Right_Wall = new Wall(1580,-80);
+    scene -> addItem(Left_Wall);
+    scene -> addItem(Right_Wall);
+
     QTimer * timer_WAH = new QTimer();
     QObject::connect(timer_WAH,SIGNAL(timeout()),WAH,SLOT(THE_GREAT_WAH()));
-    timer_WAH->start(8000);
+    timer_WAH->start(14000);
 
     show();
 }

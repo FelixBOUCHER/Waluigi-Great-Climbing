@@ -14,6 +14,11 @@ public:
     void keyReleaseEvent(QKeyEvent *event);
     void Init(int X, int Y);
 
+    void Animation(bool isWall);
+    void turn_Right(int numbered_Animation);
+    void turn_Left(int numbered_Animation);
+    bool Contact(float Waluigi_Position_Y, float Source_Contact);
+
 public slots:
     void timing();
     void timbullet();
@@ -31,9 +36,11 @@ private:
     float positionX, positionY;     // Position of the character
     float velocityX, velocityY;     // Velocity of the character
     float cap_velocityX = 1.25f;
-    float cap_velocityY;
-    float gravity = 0.04f;
+    float cap_velocityY = 4.2f;
+    float gravity = 0.035f;
 
+    int compteur_Animation = 1;
+    int timing_Animation = 1;
 
     bool Safety_Protocol = true;
     bool Yoshi_Slippers = false;
@@ -41,6 +48,8 @@ private:
     bool WarioCorp_Stache_Wax = false;
     bool SpaceRift_Overalls = false;
     bool WAHll_Gloves = false;
+
+    QPixmap Waluigi_Animation[17];
 };
 
 #endif
