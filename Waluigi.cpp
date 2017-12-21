@@ -220,23 +220,24 @@ void Waluigi::timing()
         }
     }
 
-    if (timing_Animation % 30 == 0 && grip_Wall == -1)
+    if (timing_Animation % 30 == 0)
     {
-        Animation(false);
+        if(!(grip_Wall != -1 && WAHll_Gloves == true)) Animation(false);
     }
 
     if(grip_Wall != -1)
     {
-        velocityX = 0.0;
+        if(grip_Wall < 40 && compteur_Animation > 0) velocityX = 0.0;
+        if(grip_Wall > 1500 && compteur_Animation < 0) velocityX = 0.0;
 
-        /*if(WAHll_Gloves == true)
-        {*/
+        if(WAHll_Gloves == true)
+        {
             Animation(true);
             velocityY = 0.1;
             firstjump = true;
             doublejump = true;
             positionX = grip_Wall;
-        //}
+        }
     }
 
     if(heigh == true)
@@ -257,7 +258,10 @@ void Waluigi::timing()
 
     positionX += velocityX;   // Apply horizontal velocity to X position
     positionY += velocityY;   // Apply vertical velocity to X position
-    if(velocityY < cap_velocityY && grip_Wall == -1) velocityY += gravity;     // Apply gravity to vertical velocity
+    if(velocityY < cap_velocityY)
+    {
+        if(!(grip_Wall != -1 && WAHll_Gloves == true)) velocityY += gravity; // Apply gravity to vertical velocity
+    }
 
     setPos(positionX,positionY);
 }
